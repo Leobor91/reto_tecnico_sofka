@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>retiro juego</title>
+</head>
+<body>
+<form action="#" th:action="@{/iniciar-juego}" th:object="${respuestaDto}"   method="post">
+    	<h2>GRACIAS POR PARTICIPAR SU PUNTAJE ES: </h2>
+    	<p th:text="${respuestaDto.puntos}"></p>
+    	<p><input type="submit" value="volver a jugar" /> </p>
+</form>
+    
+</body>
+</html>

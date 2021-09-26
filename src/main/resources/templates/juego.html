@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Preguntas</title>
+</head>
+<body>
+<h2 th:text="${respuestaDto.tituloPregunta}"></h2>
+<div th:each="respuesta: ${respuestaDto.listaRespuesta}">
+	<form action="#" th:action="@{/continuar-juego}" th:object="${respuestaDto}"   method="post">
+    	<input type="hidden" name="categoria" th:field="*{categoria}" />
+    	<input type="hidden" name="pregunta" th:field="*{pregunta}" />
+    	<p th:text="${respuesta.titulo}"></p>
+    	<input type="hidden" name="respuesta" th:value="${respuesta.id}">
+    	<p><input type="submit" value="escoger" /> </p>
+    </form>
+</div>
+<form action="#" th:action="@{/continuar-juego}" th:object="${respuestaDto}"   method="post">
+    	<input type="hidden" name="categoria" th:field="*{categoria}" />
+    	<input type="hidden" name="pregunta" th:field="*{pregunta}" />
+    	<input type="hidden" name="retiro" th:value="${true}">
+    	<p><input type="submit" value="declino" /> </p>
+</form>
+</body>
+</html>
