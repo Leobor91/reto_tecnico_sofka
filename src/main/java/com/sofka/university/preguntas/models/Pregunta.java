@@ -35,6 +35,7 @@ public class Pregunta implements Serializable {
 			orphanRemoval = true,
 			mappedBy = "pregunta")
 	private List<Respuesta> respuesta = new ArrayList<>();
+	
 	public long getId() {
 		return id;
 	}

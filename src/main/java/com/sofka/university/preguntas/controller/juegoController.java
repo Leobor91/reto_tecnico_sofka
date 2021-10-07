@@ -74,7 +74,7 @@ public class juegoController {
 		//se valida que no sea la ultima categoria, si lo es, se redirecciona
 			//a tomar los datos de los ganadores y se procede a llenar el historico, en caso contrario continua 
 		if(numeroCategoria == 5){
-			respuestaDto.setPuntos(retiro(respuestaDto));
+			respuestaDto.setPuntos(gano(respuestaDto));
 			
 			return "ganojuego"; //enviar como ganador  //validar si la repsutesa es correcta
 		}
@@ -103,11 +103,24 @@ public class juegoController {
 		int numeroCategoria = respuestaDto.getCategoria();
 		List<Categoria> categoria= categoriaService.findAll();
 		 for (Categoria categoria2 : categoria) {
-			 if(categoria2.getId()<= numeroCategoria) {
+			 if(categoria2.getId() < numeroCategoria) {
 				 puntos += categoria2.getPuntos();
 			 }
 			
 		}
 		 return puntos;
 	}
+	public int gano(@ModelAttribute RespuestaDto respuestaDto ) {
+		int puntos = 0;
+		int numeroCategoria = respuestaDto.getCategoria();
+		List<Categoria> categoria= categoriaService.findAll();
+		 for (Categoria categoria2 : categoria) {
+			 if(categoria2.getId() <= numeroCategoria) {
+				 puntos += categoria2.getPuntos();
+			 }
+			
+		}
+		 return puntos;
+	}
+	
 }

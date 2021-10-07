@@ -22,6 +22,7 @@ public class Persona implements Serializable{
 	private String nombre;
 	private String correo;
 	private String identificacion;
+	
 	public long getId() {
 		return id;
 	}

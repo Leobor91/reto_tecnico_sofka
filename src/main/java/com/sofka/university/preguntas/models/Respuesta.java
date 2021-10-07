@@ -25,6 +25,7 @@ public class Respuesta implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="id_pregunta")
 	private Pregunta pregunta;
+	
 	public long getId() {
 		return id;
 	}
